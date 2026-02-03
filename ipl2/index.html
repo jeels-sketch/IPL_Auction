@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Auction 2026 | E-Summit IIIT SURAT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="main-header">
+        <div class="title-container">
+            <div class="main-title">IPL AUCTION 2026</div>
+            <div class="subscript">E-Summit IIIT SURAT</div>
+        </div>
+    </div>
+
+    <!-- TOP NAVIGATION WITH STATS -->
+    <div class="top-nav">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-label">Total Players</div>
+                <div class="stat-value" id="totalPlayers">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Sold</div>
+                <div class="stat-value" id="soldCount">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Unsold</div>
+                <div class="stat-value" id="unsoldCount">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Remaining</div>
+                <div class="stat-value" id="remainingCount">0</div>
+            </div>
+        </div>
+        
+        <div class="nav-menu">
+            <div class="nav-item" data-view="sets">Sets</div>
+            <div class="nav-item active" data-view="auction">Live Auction</div>
+            <div class="nav-item" data-view="teams">Teams</div>
+            <button class="clear-btn" id="clearBtn">Clear All</button>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast"></div>
+
+    <!-- CONFIRMATION MODAL -->
+    <div class="modal-overlay" id="modalOverlay" style="display: none;">
+        <div class="modal">
+            <h2>⚠️ Clear All Data?</h2>
+            <p>This will permanently delete all auction data including teams, squads, sold/unsold players, and all saved progress.</p>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel-btn">Cancel</button>
+                <button class="modal-btn confirm-btn">Clear Everything</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+        <!-- SETS SELECTION MENU -->
+        <div class="sets-menu active" id="setsMenu">
+            <div class="sets-menu-title">🎯 Select Player Set</div>
+            <div class="sets-grid" id="setsGrid"></div>
+        </div>
+
+        <!-- AUCTION VIEW -->
+        <div class="auction-view" id="auctionView">
+            <!-- BIDDING AREA -->
+            <div class="bid-panel">
+                <div class="auction-title">💰 LIVE BIDDING</div>
+                
+                <!-- Player Showcase - NEW LAYOUT -->
+                <div class="player-showcase">
+                    <!-- LEFT: Player Photo -->
+                    <div class="player-image-container">
+                        <div id="playerImage">🏏</div>
+                    </div>
+                    
+                    <!-- RIGHT: Player Details -->
+                    <div class="player-details">
+                        <!-- TOP ROW: Name + Bid Bar -->
+                        <div class="player-top-row">
+                            <!-- Left: Player Info -->
+                            <div class="player-info-section">
+                                <div class="player-name-display" id="playerName">Select a Set First</div>
+                                <div class="player-role-badge" id="playerRole" style="display: none;">Role</div>
+                            </div>
+                            
+                            <!-- Right: Bid Rectangle Bar -->
+                            <div class="bid-info-section" id="bidInfoSection">
+                                <div class="bid-info-content">
+                                    <!-- Content will be dynamically updated -->
+                                    <div class="centered-bid-info">
+                                        <div class="base-price-centered">Base Price</div>
+                                        <div class="base-price-value">₹0 CR</div>
+                                    </div>
+                                    
+                                    <!-- Team Logo on Right (hidden initially) -->
+                                    <div class="team-logo-bid-container" style="display: none;">
+                                        <img class="team-logo-bid" id="bidTeamLogo" src="" alt="">
+                                        <div class="team-name-bid" id="bidTeamName"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- BOTTOM: Player Stats -->
+                        <div class="player-stats-container" id="playerStatsContainer" style="display: none;">
+                            <div class="player-stats-grid" id="playerStatsGrid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEAMS VIEW -->
+        <div class="teams-view" id="teamsView">
+            <div class="teams-grid-container" id="teamsGridContainer"></div>
+        </div>
+
+        <!-- TEAM SQUAD VIEW -->
+        <div class="team-squad-view" id="teamSquadView"></div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
